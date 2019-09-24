@@ -124,6 +124,41 @@
           }
         }
       }
+    },
+    "cellilog-lib": {
+      "projectType": "library",
+      "root": "projects/cellilog-lib",
+      "sourceRoot": "projects/cellilog-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cellilog-lib/tsconfig.lib.json",
+            "project": "projects/cellilog-lib/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cellilog-lib/src/test.ts",
+            "tsConfig": "projects/cellilog-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/cellilog-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cellilog-lib/tsconfig.lib.json",
+              "projects/cellilog-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "cellilog"
 }

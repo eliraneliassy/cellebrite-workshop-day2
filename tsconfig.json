@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "cellilog-lib": [
+        "dist/cellilog-lib"
+      ],
+      "cellilog-lib/*": [
+        "dist/cellilog-lib/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

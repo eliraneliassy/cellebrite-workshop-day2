@@ -1,6 +1,5 @@
-import { LoggerService } from './logger/logger.service';
-import { LoggerInterceptor } from './logger.interceptor';
-import { LoggerModule } from './logger/logger.module';
+
+import { LoggerModule } from '../../projects/cellilog-lib/src/src/app/logger/logger.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -19,7 +18,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true, deps: [LoggerService] }
+
   ],
   bootstrap: [AppComponent]
 })

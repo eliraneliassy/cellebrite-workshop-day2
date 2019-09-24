@@ -1,4 +1,4 @@
-import { LoggerService } from './logger/logger.service';
+import { LoggerService } from './logger.service';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 export class LoggerInterceptor implements HttpInterceptor {
