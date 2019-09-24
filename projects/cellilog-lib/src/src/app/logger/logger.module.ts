@@ -1,8 +1,9 @@
+import { config } from './../../../../../../src/app/app.module';
 import { NgModule, InjectionToken, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoggerInterceptor } from './logger.interceptor';
-import { APP_NAME } from './APP_NAME';
+import { LoggerConfig, LOGGER_CONFIG } from './APP_NAME';
 
 export function getAppName() {
   return 'App1';
@@ -26,11 +27,11 @@ export function getAppName() {
   ]
 })
 export class LoggerModule {
-  static init(appName: string): ModuleWithProviders {
+  static init(config: LoggerConfig): ModuleWithProviders {
     return {
       ngModule: LoggerModule,
       providers: [
-        { provide: APP_NAME, useValue: appName }
+        { provide: LOGGER_CONFIG, useValue: config }
       ]
     };
   }
