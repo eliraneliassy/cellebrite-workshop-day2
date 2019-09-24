@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoggerService } from './logger.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoggerInterceptor } from './logger.interceptor';
+import { APP_NAME } from './APP_NAME';
 
+export function getAppName() {
+  return 'App1';
+}
 
 @NgModule({
   declarations: [],
@@ -12,8 +15,23 @@ import { LoggerInterceptor } from './logger.interceptor';
   ],
   providers: [
 
-    { provide: HTTP_INTERCEPTORS, useClass: LoggerInterceptor, multi: true, deps: [LoggerService] }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggerInterceptor,
+      multi: true,
+    },
+    // { provide: APP_NAME, useValue: 'App1' }
+    // { provide: APP_NAME, useFactory: getAppName },
 
   ]
 })
-export class LoggerModule { }
+export class LoggerModule {
+  static init(appName: string): ModuleWithProviders {
+    return {
+      ngModule: LoggerModule,
+      providers: [
+        { provide: APP_NAME, useValue: appName }
+      ]
+    };
+  }
+}

@@ -20,10 +20,7 @@
     ],
     "paths": {
       "cellilog-lib": [
-        "dist/cellilog-lib"
-      ],
-      "cellilog-lib/*": [
-        "dist/cellilog-lib/*"
+        "projects/cellilog-lib/src/src/logger.ts"
       ]
     }
   },

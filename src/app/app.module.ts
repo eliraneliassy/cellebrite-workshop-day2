@@ -1,5 +1,6 @@
-
+import { APP_NAME } from './../../projects/cellilog-lib/src/src/app/logger/APP_NAME';
 import { LoggerModule } from '../../projects/cellilog-lib/src/src/app/logger/logger.module';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,11 +15,11 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoggerModule,
-    HttpClientModule
+    HttpClientModule,
+    LoggerModule.init('From static init')
   ],
   providers: [
-
+    // { provide: APP_NAME, useValue: 'From AppModule' }
   ],
   bootstrap: [AppComponent]
 })
