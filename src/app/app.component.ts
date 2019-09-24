@@ -1,3 +1,4 @@
+import { LoggerService } from './logger/logger.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'cellilog';
+  constructor(private loggerService: LoggerService) { }
+  click() {
+    this.loggerService.log('Hello');
+  }
 }
