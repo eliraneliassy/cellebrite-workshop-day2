@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class LoggerService {
 
   constructor() { }
 
-  log(msg: string) {
-    console.group('Message from Logger:');
+  log(appName: string, msg: string) {
+    console.group(`Message from ${appName} Logger:`);
     console.log(msg);
     console.groupEnd();
   }
